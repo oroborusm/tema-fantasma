@@ -1,0 +1,154 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+<!-- <header {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+  <div class="contenedor">
+    <div class="logo">
+      <figure>
+        <img src="{{asset "images/logo.png"}}" alt="">
+      </figure>
+    </div>
+    
+  </div>
+  <div class="oscuro"></div>
+</header> -->
+<div class="fijo">
+    <div class="bio">
+      <ul class="slide">
+        <li>
+          <figure>
+            <img src="{{asset "images/diseno.png"}}" alt="">
+            <figcaption>
+              <p>Un texto para decir que le ponimo al diseño</p>
+            </figcaption>
+          </figure>
+          
+        </li>
+
+        <li>
+          <figure>
+            <img src="{{asset "images/codigo.png"}}" alt="">
+            <figcaption>
+              <p>Un texto para decir que le ponimo al diseño webs</p>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fijoImg"></div>
+
+</div>
+
+{{! The main content area on the homepage }}
+<main>
+    <section>
+        <article class="tools">
+          <ul>
+              <li >
+                  <figure>
+                      <img src="{{asset "/images/ai.png"}}" alt="">
+                      <figcaption></figcaption>
+                  </figure>
+              </li>
+              <li >
+                  <figure>
+                      <img src="{{asset "/images/ps.png"}}" alt="">
+                      <figcaption></figcaption>
+                  </figure>
+              </li>
+              <li >
+                  <figure>
+                      <img src="{{asset "/images/id.png"}}" alt="">
+                      <figcaption></figcaption>
+                  </figure>
+              </li>
+          </ul>
+
+          <ul>
+            <li>
+                <figure>
+                    <img src="{{asset "/images/html5.png"}}" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{{asset "/images/rails.png"}}" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{{asset "/images/css3.png"}}" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{{asset "/images/js.png"}}" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{{asset "/images/st.png"}}" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{{asset "/images/styl.png"}}" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+          </ul>
+        </article>
+        
+    </section>
+
+    <section class="galeria">
+        <div class="contPost">
+            <ul class="post-iterado">
+              {{! Each post will be output using this markup }}
+              {{#foreach posts}}
+              <li>
+                <article>
+                    <a href="{{url}}">
+                        <div class="imagen">
+                          {{content words="0"}}
+                        </div>
+
+                        <div class="tituloPost">
+                            <h2>{{{title}}}</h2>
+
+                            <span class="fecha">
+                                <time datetime="{{date format='YYYY-MM-DD'}}">
+                                    {{date format="DD MMM YYYY"}}
+                                </time>
+                                <!-- <div class="tag">{{tags prefix=" en "}}</div> -->
+                            </span>
+
+                        </div>
+                    </a>
+                </article>
+              </li>
+
+              {{/foreach}}
+            </ul>            
+        </div>
+    </section>
+    
+    <section class="contPag">
+        {{!! After all the posts, we have the previous/next pagination links }}
+        {{pagination}}
+    </section>
+
+        
+        
+
+    
+</main>
